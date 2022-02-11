@@ -36,7 +36,7 @@ const Home = (): JSX.Element => {
   // States
   // -------------------------------------------------
 
-  // const [products, setProducts] = useState<ProductFormatted[]>([]);
+  const [products, setProducts] = useState<ProductFormatted[]>([]);
 
   // -------------------------------------------------
   // Hooks
@@ -46,11 +46,14 @@ const Home = (): JSX.Element => {
 
   useEffect(() => {
     async function loadProducts() {
-      // TODO
+      api
+        .get<ProductFormatted[]>("products")
+        .then((response) => setProducts(response.data));
     }
 
     loadProducts();
   }, []);
+  console.log(products);
 
   // -------------------------------------------------
   // Functions

@@ -16,8 +16,10 @@ const Header = (): JSX.Element => {
   // CONSTANTS
   // -------------------------------------------------
 
-  // const { cart } = useCart();
-  // const cartSize = // TODO;
+  const { cart } = useCart();
+  const cartSize = cart.length; // TODO;
+
+  console.log({ cart, cartSize });
 
   // -------------------------------------------------
   // Render
@@ -32,7 +34,7 @@ const Header = (): JSX.Element => {
         <div>
           <strong>Meu carrinho</strong>
           <span data-testid="cart-size">
-            {/* {cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`} */}
+            {cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}
           </span>
         </div>
         <MdShoppingBasket size={36} color="#FFF" />
