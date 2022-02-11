@@ -1,15 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { MdShoppingBasket } from 'react-icons/md';
+// Packages
+import { Link } from "react-router-dom";
 
-import logo from '../../assets/images/logo.svg';
-import { Container, Cart } from './styles';
-import { useCart } from '../../hooks/useCart';
+// Assets
+import { MdShoppingBasket } from "react-icons/md";
+import logo from "../../assets/images/logo.svg";
+
+// Hooks
+import { useCart } from "../../hooks/useCart";
+
+// Styles
+import { Container, Cart } from "./styles";
 
 const Header = (): JSX.Element => {
+  // -------------------------------------------------
+  // CONSTANTS
+  // -------------------------------------------------
+
   // const { cart } = useCart();
   // const cartSize = // TODO;
 
+  // -------------------------------------------------
+  // Render
+  // -------------------------------------------------
   return (
     <Container>
       <Link to="/">

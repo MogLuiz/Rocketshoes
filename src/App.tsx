@@ -1,13 +1,23 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+// Packages
+import { BrowserRouter } from "react-router-dom";
 
-import Routes from './routes';
-import GlobalStyles from './styles/global';
-import Header from './components/Header';
-import { CartProvider } from './hooks/useCart';
+// Components
+import { ToastContainer } from "react-toastify";
+import Header from "./components/Header";
+
+// Hooks
+import { CartProvider } from "./hooks/useCart";
+
+// Routes
+import Routes from "./routes";
+
+// Styles
+import GlobalStyles from "./styles/global";
 
 const App = (): JSX.Element => {
+  // -------------------------------------------------
+  // Render
+  // -------------------------------------------------
   return (
     <BrowserRouter>
       <CartProvider>

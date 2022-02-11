@@ -1,7 +1,14 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
-import { toast } from 'react-toastify';
-import { api } from '../services/api';
-import { Product, Stock } from '../types';
+// Packages
+import { createContext, ReactNode, useContext, useState } from "react";
+
+// Components
+import { toast } from "react-toastify";
+
+// Services
+import { api } from "../services/api";
+
+// Types
+import { Product, Stock } from "../types";
 
 interface CartProviderProps {
   children: ReactNode;

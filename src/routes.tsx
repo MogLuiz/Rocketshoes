@@ -1,9 +1,14 @@
-import { Switch, Route } from 'react-router-dom';
+// Packages
+import { Switch, Route } from "react-router-dom";
 
-import Home from './pages/Home';
-import Cart from './pages/Cart';
+// Pages
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
 
 const Routes = (): JSX.Element => {
+  // -------------------------------------------------
+  // Render
+  // -------------------------------------------------
   return (
     <Switch>
       <Route path="/" exact component={Home} />
