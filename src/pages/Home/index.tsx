@@ -15,6 +15,7 @@ import { api } from "../../services/api";
 
 // Styles
 import { ProductList } from "./styles";
+import { useQuery } from "react-query";
 
 interface Product {
   id: number;
@@ -36,7 +37,7 @@ const Home = (): JSX.Element => {
   // States
   // -------------------------------------------------
 
-  const [products, setProducts] = useState<ProductFormatted[]>([]);
+  // const [products, setProducts] = useState<ProductFormatted[]>([]);
 
   // -------------------------------------------------
   // Hooks
@@ -44,18 +45,21 @@ const Home = (): JSX.Element => {
 
   // const { addProduct, cart } = useCart();
 
-  useEffect(() => {
-    async function loadProducts() {
+  const { data: products } = useQuery<ProductFormatted[]>(
+    "products",
+    async () => {
       const response = await api.get<Product[]>("products");
       const formattedProduct = response.data.map((product: Product) => ({
         ...product,
         priceFormatted: formatPrice(product.price),
       }));
-      setProducts(formattedProduct);
+      return formattedProduct;
+    },
+    {
+      staleTime: 1000 * 60, // 1 minute
     }
+  );
 
-    loadProducts();
-  }, []);
   console.log(products);
 
   // -------------------------------------------------
@@ -75,7 +79,7 @@ const Home = (): JSX.Element => {
   // -------------------------------------------------
   return (
     <ProductList>
-      {products.map((product) => (
+      {products?.map((product) => (
         <li>
           <img src={product.image} alt={product.title} />
           <strong>{product.title}</strong>
